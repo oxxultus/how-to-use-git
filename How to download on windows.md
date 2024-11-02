@@ -17,7 +17,7 @@
 - `winget` 명령어를 사용해 설치하는 방식이다. (따라오기만 하면 빠르고 간단하다.)
 - [Oh My Posh 공식 홈페이지](https://ohmyposh.dev/docs)를 확인하면 여러가지 설치방법이 존재한다.
 
-1. Windows PowerShell 을 실행해서 다음
+1. Windows PowerShell 을 실행해서 다음 명령어를 입력한다.
 ```PowerShell
 winget install JanDeDobbeleer.OhMyPosh
 ```
@@ -56,12 +56,8 @@ oh-my-posh init pwsh --config '[로컬에 설치된 테마파일 경로]' | Invo
 ```text
 oh-my-posh init pwsh --config 'C:\Users\admin\AppData\Local\Programs\oh-my-posh\themes\atomic.omp.json' | Invoke-Expression
 ```
+-  [작성후 빨간 글씨로 스크립트 실행관련 오류가 뜬다면?](#step-2-2번에-대한-예외처리) 
 
-4. 작성후 빨간 글씨로 스크립트 실행관련 오류가 뜬다면?
-```PowerShell
-Set-ExecutionPolicy RemoteSigned
-```
-	해당 코드를 실행하여 A를 입력하면 된다.
 
 5. 실행확인 방법
 	해당 명령어를 실행하면 테마를 바로 확인 가능하다.
@@ -80,3 +76,10 @@ Get-PoshThemes
 New-Item -Path $PROFILE -Type File -Force
 ```
 	위 예외처리를 완료했다면 돌아가서 1번부터 다시 수행한다.
+
+#### Step 2. 2번에 대한 예외처리
+	작성후 빨간 글씨로 스크립트 실행관련 오류가 뜬다면?
+```PowerShell
+Set-ExecutionPolicy RemoteSigned
+```
+	해당 코드를 실행하여 A를 입력하면 된다.
