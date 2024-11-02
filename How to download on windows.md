@@ -52,7 +52,7 @@ notepad notepad $PROFILE
 oh-my-posh init pwsh --config '[로컬에 설치된 테마파일 경로]' | Invoke-Expression
 ```
 
-	본인이 작성한 설정 정보
+- 본인이 작성한 설정 정보
 ```text
 oh-my-posh init pwsh --config 'C:\Users\admin\AppData\Local\Programs\oh-my-posh\themes\atomic.omp.json' | Invoke-Expression
 ```
@@ -65,21 +65,20 @@ oh-my-posh init pwsh --config 'C:\Users\admin\AppData\Local\Programs\oh-my-posh\
 ```PowerShell
 Get-PoshThemes
 ```
-	그냥 재실행 해도 된다. 재실행을 추천한다.
 
 ### Exception handling
 #### Step 2. 1번에 대한 예외처리
-	- 아무런 응답없음
-	- **메모장**이나 **텍스트 편집기**가 열리지 않음
+	아무런 응답없음
+	메모장이나 텍스트 편집기가 열리지 않음
 > 관리자 권한으로 실행된 `PowerShell` 에 해당 명령어를 작성하자.
 ```PowerShell
 New-Item -Path $PROFILE -Type File -Force
 ```
-	위 예외처리를 완료했다면 돌아가서 1번부터 다시 수행한다.
+> 위 예외처리를 완료했다면 돌아가서 1번부터 다시 수행한다.
 
 #### Step 2. 2번에 대한 예외처리
 	작성후 빨간 글씨로 스크립트 실행관련 오류가 뜬다면?
 ```PowerShell
 Set-ExecutionPolicy RemoteSigned
 ```
-	해당 코드를 실행하여 A를 입력하면 된다.
+> 해당 코드를 실행하여 A를 입력하면 된다.
