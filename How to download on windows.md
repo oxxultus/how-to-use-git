@@ -59,12 +59,22 @@ oh-my-posh init pwsh --config 'C:\Users\admin\AppData\Local\Programs\oh-my-posh\
 -  [작성후 빨간 글씨로 스크립트 실행관련 오류가 뜬다면?](#step-2-2번에-대한-예외처리) 
 
 
-5. 실행확인 방법
+3. 실행확인
 	해당 명령어를 실행하면 테마를 바로 확인 가능하다.
 	그냥 **재실행**을 추천한다
 ```PowerShell
 Get-PoshThemes
 ```
+
+4. 폰트가 깨지는 경우 **Nerd font**를 설치해줘야 한다.
+	1. [폰트다운 링크](https://www.nerdfonts.com/font-downloads) 로 이동한다.
+	2. 원하는 폰트를 다운한다.
+	3. 압축을 푼다. 
+	4. 윈도우 `개인설정`->`글꼴` 로 들어가서 윈도우에 다운한다.
+	5. `WindowPowerShell` 을 열어서 `좌클릭`->`설정`으로 들어간다
+	6. `기본값`->`글꼴` 로 들어가 다운받은 Nerd font 로 변경한다.
+	7. 재 실행하면 글자 깨짐이 사라질 것이다.
+
 
 ### Exception handling
 #### Step 2. 1번에 대한 예외처리
