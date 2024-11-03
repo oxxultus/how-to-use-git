@@ -4,7 +4,7 @@
 
 
 ## How to download on mac
-- [mac]()
+- [mac](https://github.com/oxxultus/how-to-use-git/blob/main/How%20to%20download%20on%20mac)
 
 ## How to download on windows
 > 윈도우 에서도 리눅스 기반으로 터미널을 사용할 것으로 바꿀 예정
