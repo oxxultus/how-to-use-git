@@ -4,7 +4,7 @@
 
 
 ## How to download on mac
-- [mac](https://github.com/oxxultus/how-to-use-git/blob/main/How%20to%20download%20on%20mac)
+- [mac]()
 
 ## How to download on windows
 > 윈도우 에서도 리눅스 기반으로 터미널을 사용할 것으로 바꿀 예정
@@ -247,7 +247,7 @@ git commit # commit 을 진행한다.
 
 
 ## Tips
-- Git 명령어 줄이기
+- Git 명령어 단축하기
 ```Shell
 git config --global alias.<사용자 설정명령어> <기존명령어>
 
