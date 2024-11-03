@@ -1,0 +1,166 @@
+## 사용하는 프로그램
+> 기본적으로 `WIndow 11`부터 기본적으로 설치 되어있는 `iTerm` 을 사용한다.
+>  [iTerm2](https://iterm2.com/downloads.html)공식 홈페이지에서 다운하거나 명령어로 다운하면된다.
+
+- 명령어로 다운로드 하는 방법
+	1. HomeBrew 가 설치 되어 있어야 한다.
+	2. [다운로드 방법](https://m-ur-phy.tistory.com/entry/%EB%A7%A5%EB%B6%81-Homebrew-%ED%99%88%EB%B8%8C%EB%A5%98-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0) 해당 사이트를 참고하세요.
+	3. 다운이 완료 되었다면 아래 명령어 실행하세요.
+```iterm2
+brew install iterm2
+```
+- 설치 확인하기
+```
+brew list
+```
+
+## How to install
+- 기본적으로 Oh My Posh 라는 프로그램을 사용해 터미널 커스터 마이징을 사용할 예정이다.
+
+### Step 1. Install Oh-My-zsh
+- `brew` , `sh` 명령어를 사용해 설치하는 방식이다. (따라오기만 하면 빠르고 간단하다.)
+
+1. zsh 설치
+```Shell
+brew install zsh
+```
+
+3. iTerm2 을 실행해서 다음 명령어를 입력한다.
+```Shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+### Step 2. Setup Terminal Themes
+> iTerm2 기준 테마를 설정하는 방법에 대해 작성되어 있습니다.
+
+#### 1. 먼저 iTerm에서 `Command + ,`를 누르면 **Preference** 설정 창이 열려요.
+
+#### 2. Font 설정
+homebrew를 통해 설치가 가능합니다. 터미널 창에 아래 스크립트를 입력하세요.
+```Shell
+brew tap homebrew/cask-fonts
+brew install font-fira-code
+```
+
+**Fira-code**는 코딩에 최적화된 폰트입니다.  
+이 폰트는 숫자 0과 알파벳 O, 숫자 1과 알파벳 l 등 헷갈리는 기호나 글꼴을 구별하기 좋게 표현 해줍니다.
+
+`Preference` > `Profiles` > `Text` 경로에 가서 Font는 `FiraCode`로 설정 합니다.  그리고 `Use_ligatures` 를 체크하셔야 이쁜 화살표를 사용가능하다.
+
+#### 3. status bar 설정
+	1. `Preference` > `Profiles` > `Session` 경로로 가서 `status bar enabled`를 체크합니다.
+	2. `Configure Status Bar`를 눌려서 원하는 옵션 추가하기.
+	3. *상태바가 상단에 생기게 됩니다. 중요한건 아닙니다.*
+
+- 상태바 하단에 두는 방법 
+`Preference` > `Appearance` > `General` 에서 `Status bar location`을 Bottom 으로 변경하세요.
+
+- 블록의 구분감을 없애고 싶다면
+`Preference` > `Appearance` > `General` 에서 `Theme`을 Minimal로 변경하세요.
+
+#### 4. Color Scheme 설정
+1. [iterm2colorschemes 링크](https://iterm2colorschemes.com/)에 들어가보면 여러가지 색상 조합이 존재한다.  
+2. 여기서 원하는 테마의 이름을 `우클릭` > `다른 이름으로 링크 저장(Save Link As..)`을 선택하여 저장합니다.
+		본인은[**Snazzy**](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Snazzy.itermcolors)를 사용한다.
+3. 다음에는 `Preference` > `Profiles` > `Colors`에서 우측 하단 `Color Presets...`을 클릭하여 저장한 저장한 컬러 조합을 `import`  합니다.
+
+#### 5.  Terminal window name 설정
+1. 창 상단에 현재 내 컴퓨터의 이름변경 가능하다.  
+2. `Preference` > `Profiles` > `Window` 에서 `Custom window title`를 체크하고 원하는 이름을 입력 합니다.
+
+#### 6. zsh Theme 테마 설정 (본인 사용 테마 : agnoster)
+1. iTerm2 에 해당 스크립트 입력 `vi ~/.zshrc` 입력하기
+2. 내용 중 `ZSH_THEME = robbyrussell` 찾아서 `agnoster`로 바꿔줍니다.
+3. `ESC` -> `:wq!` -> `enter`누르면 저장된다.
+
+#### 7. 이름지우기
+1. 테마를 설정하게 되면 다시 사용자 이름이 나오게 됩니다.
+2. iTerm2 에 해당 스크립트 입력 `vi ~/.zshrc` 입력하기
+3. 나오는 화면에 `장석 양식`을 작성하면 됩니다.
+4. `ESC` -> `:wq!` -> `enter`누르면 저장된다.
+
+- `작성 양식`
+```shell
+prompt_context() {
+  emojis=("🦊" "🐱" "🐶" "🐼" "🐯" "🦁")
+  nickname="원하는 닉네임"
+  RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
+  prompt_segment black default "${nickname} ${emojis[$RAND_EMOJI_N]} "
+}
+```
+
+#### 8. 명령어 시작점을 줄바꿈(안하고 싶으면 안해도 됩니다. 조금 복잡함)
+- agnoster 테마를 선택 했다면, 아래 스크립트를 실행합니다.
+```shell
+vi ~/.oh-my-zsh/themes/agnoster.zsh-theme
+```
+
+- 그리고 **_build_prompt()_**를 찾아서 **prompt_newline**을 `prompt_hg`와 `promt_end`사이에 `prompt_newline`를 추가 해주세요.
+```shell
+# File: ~/.oh-my-zsh/themes/agnoster.zsh-theme
+...
+
+build_prompt() {
+  RETVAL=$?
+  prompt_status
+  prompt_virtualenv
+  prompt_context
+  prompt_dir
+  prompt_git
+  prompt_bzr
+  prompt_hg
+  prompt_newline // 줄바꿈하는 함수! 해당 함수를 추가하라
+  prompt_end
+}
+
+...
+```
+
+- 그리고 코드 최하단으로 내려와서 **prompt_newline** 함수를 정의해줍시다.
+
+```shell
+# File: ~/.oh-my-zsh/themes/agnoster.zsh-theme
+...
+
+prompt_newline() {
+  if [[ -n $CURRENT_BG ]]; then
+    echo -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR
+%{%k%F{blue}%}$SEGMENT_SEPARATOR"
+  else
+    echo -n "%{%k%}"
+  fi
+
+  echo -n "%{%f%}"
+  CURRENT_BG=''
+}
+```
+
+- `ESC` -> `:wq!` -> `enter`누르면 저장된다.
+#### 플러그인 (확장, 편의를 위해 사용권장)
+> 차근차근 한줄식 실행하세요
+
+-  zsh-syntax-highlighting 설치
+	- 사용할 수 있는 명령어인지 확인할 수 있는 플러그인
+```shell
+brew install zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+-  zsh-autosuggestions 설치
+	- 내가 입력할때 흐린 글씨로 무슨 명령어를 입력할지 추천해주는 플러그인
+```shell
+brew install zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+##### .zshrc 에 추가하기
+1. `.zshrc` 파일을 열고 `plugins`를 찾아 설치한 `zsh-syntax-highlighting` `zsh-autosuggestions`를 추가 해줍니다.
+```shell
+vi ~/.zshrc
+```
+
+```shell
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+```
+
+- `ESC` -> `:wq!` -> `enter`누르면 저장된다.
