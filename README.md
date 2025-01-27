@@ -8,7 +8,7 @@
 
 ## How to download on windows
 > 윈도우 에서도 리눅스 기반으로 터미널을 사용할 것으로 바꿀 예정
-- [Winddow](https://github.com/oxxultus/how-to-use-git/blob/f2e44bd099b0e3c7eba459de9e909482786c85c4/How%20to%20download%20on%20windows.md)
+- [Window](https://github.com/oxxultus/how-to-use-git/blob/f2e44bd099b0e3c7eba459de9e909482786c85c4/How%20to%20download%20on%20windows.md)
 
 
 
