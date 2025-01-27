@@ -17,22 +17,22 @@
 
 ## Start Setup
 - Git config check (Git 설정 확인)
-```Shell
+```bash
 git config --list
 ```
 
-- git config set user.name (Git 닉네임 설정)
-```Shell
-git config user.name "설정할 이름"
+- git config --global user.name (Git 닉네임 설정)
+```bash
+git config --global user.name "설정할 이름"
 ```
 
-- git config set user.email (Git 이메일 설정)
-```Shell
-git config user.email "본인 이메일"
+- git config --global user.email (Git 이메일 설정)
+```bash
+git config --global user.email "본인 이메일"
 ```
 
-- git config set core.autocrlf (Git 운영체제간의 줄바꿈 통일)
-```Shell
+- git config core.autocrlf (Git 운영체제간의 줄바꿈 통일)
+```bash
 // Window
 git config core.autocrlf true
 
@@ -43,12 +43,12 @@ git config core.autocrlf input
 - git config set core.editor (Git  기본 에디터를 vscode 로 설정)
 	1. `--wait` 옵션은 `vscode` 실행 중 인 경우 `terminal` 을 잠시 사용할 수 없고, 수정이 완료가 된다면 `terminal` 입력이 가능하게 하는 옵션 중 하나이다.
 	2. . 만약 `--wait` 옵션을 지운다면, vscode 사용 중 `terminal`사용이 가능합니다.
-```Shell
+```bash
 git config --global core.editor "code --wait"
 ```
 
 - git diff to vscode (Git 글로벌 설정을 기본에디터로 실행)
-```Shell
+```bash
 git config --global -e
 
 
@@ -60,6 +60,18 @@ git config --global -e
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 #==========================================
+```
+
+- 원격 저장소 연결
+
+1. 원격 저장소 추가:
+```bash
+git remote add origin https://github.com/<사용자명>/<저장소명>.git
+```
+
+2. 원격 저장소 확인:
+```bash
+git remote -v
 ```
 
 
@@ -132,7 +144,7 @@ git status -s
 
 
 - Staging Area에 업로드 명령어
-```Shell
+```bash
 # 단일 파일 추가
 git add <파일이름.확장자>
 
@@ -150,7 +162,7 @@ git add .
 ```
 
 - 수정된 부분 확인하기
-```Shell
+```bash
 # 기본 설정을 vscode 로 해 두었다면 vscode 로 편리하게 볼 수 있다.
 # untracked tracked 파일의 변경점을 확인할 수 있다. 
 git diff
@@ -181,7 +193,7 @@ git rm --cached * # 모든 파일 untracked
 
 - 여러가지 기능들을 만들어서 Staging Area에 업로드 해둔 것을 기반으로 commit 을 작성한다.
 - 커밋을 완료하고 난 뒤 `git status`를 확인하면 untracked, tracked이 깔금하게 정리된 것을 알 수 있다.
-```Shell
+```bash
 # 아무 옵션 없이 작성하면 vscode 상에서 기본적인 옵션이 나온다.
 git commit 
 
@@ -196,7 +208,7 @@ git commit -am "작성하고싶은 내용"
 	 기본은 Staging Area에 있는 파일만 commit 된다.
 
 - Check commit log 
-```Shell
+```bash
 git log
 ```
 
@@ -209,34 +221,34 @@ git log
 - 원본과 변경점을 쉽게 알아볼 수 있다.
 
 - branch 만들기
-```Shell
+```bash
 git branch <branch name>
 ```
 
 - branch list 확인
-```Shell
+```bash
 git branch --list
 ```
 
 - branch 접근
-```Shell
+```bash
 git switch <branch name>
 ```
 
 - branch coommit 를 그래프로 확인
-```Shell
+```bash
 # (HEAD -> master)의 의미는 master branch 위치에 본인이 있다는 뜻이다.
 git log --oneline --all --graph
 ```
 
 - 분기가 나누어진 branch 를 master branch 로 병합하기
 	 new branch -> master branch
-```Shell
+```bash
 # 기준이 될 branch 로 이동
 git switch mater
 
 # 병합하기
-git merge new branch
+git merge <new branch>
 
 # 만약 브런치를 나누었지만 master branch 와 동일한 부분이 수정 되어있다면 충돌이 발생한다
 # 해결방법 : 직접 코드를 수정해서 하나로 통합시킨다.
@@ -248,7 +260,7 @@ git commit # commit 을 진행한다.
 
 ## Tips
 - Git 명령어 단축하기
-```Shell
+```bash
 git config --global alias.<사용자 설정명령어> <기존명령어>
 
 # 내가 사용하는 short cut 예시
