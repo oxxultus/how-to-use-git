@@ -63,15 +63,9 @@ git config --global -e
 ```
 
 - 원격 저장소 연결
-
-1. 원격 저장소 추가:
 ```bash
 git remote add origin https://github.com/<사용자명>/<저장소명>.git
-```
-
-2. 원격 저장소 확인:
-```bash
-git remote -v
+git remote -v // 저장소 연결 확인
 ```
 
 
